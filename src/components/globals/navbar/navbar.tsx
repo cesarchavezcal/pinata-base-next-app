@@ -8,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { auth } from '@/lib/auth/auth';
-import { Suspense } from 'react';
 import { SignOutItem } from './logout-item';
 
 export interface NavbarProps {}
@@ -50,9 +49,7 @@ export async function Navbar() {
       <span className="text-xl font-semibold text tracking-wider">
         <i className="text-2xl mr-2">🪅</i> Piñata
       </span>
-      <Suspense fallback={<p>Loading...</p>}>
-        <UserMenu />
-      </Suspense>
+      <UserMenu />
     </nav>
   );
 }
