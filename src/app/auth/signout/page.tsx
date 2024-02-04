@@ -10,16 +10,16 @@ import {
 } from '@/components/ui/card';
 import { signOut } from 'next-auth/react';
 
-export default function SignIn() {
+export default function SignOut() {
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Logout Service</CardTitle>
-        <CardDescription>Logout from your personal account</CardDescription>
+        <CardTitle>Sign Out Service</CardTitle>
+        <CardDescription>Sign Out from your personal account</CardDescription>
       </CardHeader>
       <CardContent>
         <Button variant={'destructive'} onClick={() => signOut({ callbackUrl: '/' })}>
-          Logout
+          Sign Out
         </Button>
       </CardContent>
       <CardFooter></CardFooter>

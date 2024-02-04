@@ -42,5 +42,5 @@ export default NextAuth(authConfig).auth;
 // );
 
 export const config = {
-  matcher: ['/auth/logout', '/auth/login', '/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+  matcher: ['/auth/signout', '/auth/signin', '/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 };
