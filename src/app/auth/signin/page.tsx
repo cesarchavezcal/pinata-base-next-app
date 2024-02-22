@@ -14,7 +14,7 @@ export default function SignIn() {
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Login Service</CardTitle>
+        <CardTitle>Sign In Service</CardTitle>
         <CardDescription>Use your Google account</CardDescription>
       </CardHeader>
       <CardContent>

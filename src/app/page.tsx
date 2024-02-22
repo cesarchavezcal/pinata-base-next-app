@@ -1,5 +1,6 @@
 import { getInternalBlogPosts } from '@/actions';
 import { AddPost } from '@/components/forms/add-post';
+import { Navbar } from '@/components/globals/navbar/navbar';
 import {
   Table,
   TableBody,
@@ -10,8 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { auth } from '@/lib/auth/auth';
-import React, { Suspense } from 'react';
+import React from 'react';
 
 async function InternalBlogPosts(): Promise<React.ReactElement> {
   const posts = await getInternalBlogPosts();
@@ -47,36 +47,22 @@ async function InternalBlogPosts(): Promise<React.ReactElement> {
   );
 }
 
-async function User(): Promise<React.ReactElement> {
-  const session = await auth();
-
-  return (
-    <div>
-      <h1>{session?.user.name}</h1>
-    </div>
-  );
-}
-
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between container">
-      <Suspense fallback={<p>Loading...</p>}>
-        <User />
-      </Suspense>
-      <section className="grid grid-cols-6 gap-4">
-        <section className="col-span-2">
-          <AddPost />
-        </section>
-        <section className="col-span-4">
-          <Suspense
-            fallback={
-              <p className="fixed top-0 left-0 z-10 bg-red-500 w-full h-full">Loading...</p>
-            }
-          >
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col items-center justify-between container">
+        <section className="grid grid-cols-6 gap-4 pt-4">
+          <section className="col-span-2">
+            <AddPost />
+          </section>
+          <section className="col-span-4">
+            {/* <Suspense fallback={}>
+            </Suspense> */}
             <InternalBlogPosts />
-          </Suspense>
+          </section>
         </section>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
